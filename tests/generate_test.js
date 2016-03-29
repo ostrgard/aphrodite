@@ -140,4 +140,12 @@ describe('generateCSS', () => {
             backgroundImage: 'url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAB)'
         }], '.foo{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAB) !important;}');
     });
+
+    it('supports the content property with a semi-colon', () => {
+        assertCSS('.foo', [{
+            ':before': {
+                content: '"foo;bar"',
+            }
+        }], '.foo:before{content:"foo;bar" !important;}');
+    });
 });
