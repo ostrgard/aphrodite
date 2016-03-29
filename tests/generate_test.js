@@ -134,4 +134,10 @@ describe('generateCSS', () => {
             display: 'flex',
         }], '.foo{display:-webkit-box !important;display:-moz-box !important;display:-ms-flexbox !important;display:-webkit-flex !important;display:flex !important;}');
     });
+
+    it('supports data-uri\'s', () => {
+        assertCSS('.foo', [{
+            backgroundImage: 'url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAB)'
+        }], '.foo{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAB) !important;}');
+    });
 });
