@@ -14,7 +14,7 @@ export const generateCSS = (selector, styleTypes, stringHandlers,
     const pseudoStyles = {};
 
     Object.keys(merged).forEach(key => {
-        if (key[0] === ':') {
+        if (key[0] === ':' || key[0] === '[') {
             pseudoStyles[key] = merged[key];
         } else if (key[0] === '@') {
             mediaQueries[key] = merged[key];
