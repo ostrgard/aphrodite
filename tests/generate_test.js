@@ -82,6 +82,14 @@ describe('generateCSS', () => {
         }], '.foo{color:blue !important;}');
     });
 
+    it('supports attribute selectors', () => {
+        assertCSS('.foo', [{
+            '[href^="https"]': {
+                textDecoration: 'underline'
+            }
+        }], '.foo[href^="https"]{text-decoration:underline !important;}');
+    });
+
     it('supports pseudo selectors', () => {
         assertCSS('.foo', [{
             ':hover': {
